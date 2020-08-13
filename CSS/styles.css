@@ -606,14 +606,13 @@ transform: translateY(-50%);
     top: 12px;
     left: 16px;
 }
-.modal-field:focus-within > .modal-form-text {
-    border-color: #2196F3;
+.modal-form-text, .modal-form-tel, .modal-form-emeil, .modal-form-text-input {
+    outline: none;
 }
-.modal-field:focus-within > .modal-form-tel {
-    border-color: #2196F3;
-}
+.modal-field:focus-within > .modal-form-text, 
+.modal-field:focus-within > .modal-form-tel,
 .modal-field:focus-within > .modal-form-emeil {
-    border-color: #2196F3;
+    border-color: var(--aksent-color);
 }
 .modal-field:focus-within > .modal-label {
     color: var(--aksent-color);
@@ -624,6 +623,16 @@ transform: translateY(-50%);
     transition: transform 250ms 
     cubic-bezier(0.4, 0, 0.2, 1);
 }
+.modal-form-text:not(:placeholder-shown) + .modal-label, 
+.modal-form-tel:not(:placeholder-shown) + .modal-label,
+.modal-form-emeil:not(:placeholder-shown) + .modal-label {
+    color: var(--aksent-color);
+    transform: translate(-24px, -42px);
+    font-size: 12px;
+    line-height: 1.16;
+    letter-spacing: 0.01em;
+    transition: transform 250ms 
+    cubic-bezier(0.4, 0, 0.2, 1);}
 .modal-field:focus-within > .modal-label-icons {
     fill: var(--aksent-color)
 }
@@ -636,6 +645,17 @@ transform: translateY(-50%);
     transition: transform 250ms 
     cubic-bezier(0.4, 0, 0.2, 1);
 }
+.modal-form-text-input:not(:placeholder-shown) + .modal-label-textarea {
+    color: var(--aksent-color);
+    transform: translate(-1px, -33px);
+    font-size: 12px;
+    line-height: 1.16;
+    letter-spacing: 0.01em;
+    transition: transform 250ms 
+    cubic-bezier(0.4, 0, 0.2, 1);    
+}
+.modal-field-text:focus-within > .modal-form-text-input {
+    border-color: var(--aksent-color);}
 .modal-icons {
     width: 18px;
     height: 18px;
@@ -705,6 +725,37 @@ position: absolute;
     border-color: transparent;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
     }
+.close-btn {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    display: flex;
+    align-items: center;
+    padding: 0;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: var(--title-dark-theme-color);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+}
+.modal-button-close {   
+width: 18px;
+height: 18px;
+margin: auto;
+fill: #000000;
+}
+.close-btn:hover .modal-button-close,
+.close-btn:focus .modal-button-close {
+fill: var(--aksent-color);
+transition: transform 250ms 
+cubic-bezier(0.4, 0, 0.2, 1);
+}
+.is-hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
 /*Portfolio*/
 .button-item {
     display: flex;
